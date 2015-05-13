@@ -1,0 +1,11 @@
+<ul>
+	<% @projects.each do |project| %>
+		
+		<% if project.is_null_description?	%>
+			<li><%= project.id %> || <%= project.name %> || <%= project.description %> || 	Created at: <%= project.created_at %></li>
+		<% else %>
+			<li><%= project.id %> || <%= project.name %></li>
+		<% end %>
+
+	<% end %>
+</ul>
