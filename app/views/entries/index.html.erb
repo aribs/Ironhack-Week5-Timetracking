@@ -1,0 +1,9 @@
+<ul>
+	<% @entries.each do |entry| %>
+	<li>
+		Hour: <%= entry.hours %>
+		Minute: <%= entry.minutes %>
+		Date: <%= entry.created_at %>
+	</li>
+	<% end %>
+</ul>
