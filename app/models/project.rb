@@ -14,18 +14,18 @@ class Project < ActiveRecord::Base
 	def self.get_last_created n
 	  Project.order(created_at: :desc).limit(n)
 	end
-	def calculate_hours month year
-		all_entries = self.entries
-		all_selected_entries = all_entries.select do |entry|
-			entry.date.month == month && entry.date.year == year
-		end
-		all_selected_entries.reduce(0){|sum, entry| sum + entry.calculate_hours}
-	end
-	def calculate_minute month year
-		all_entries = self.entries
-		all_selected_entries = all_entries.select do |entry|
-			entry.date.month == month && entry.date.year == year
-		end
-		all_selected_entries.reduce(0){|sum, entry| sum + entry.calculate_minute}
-	end
+#	def calculate_hours month year
+#		all_entries = self.entries
+#		all_selected_entries = all_entries.select do |entry|
+#			entry.date.month == month && entry.date.year == year
+#		end
+#		all_selected_entries.reduce(0){|sum, entry| sum + entry.calculate_hours}
+#	end
+#	def calculate_minute month year
+#		all_entries = self.entries
+#		all_selected_entries = all_entries.select do |entry|
+#			entry.date.month == month && entry.date.year == year
+#		end
+#		all_selected_entries.reduce(0){|sum, entry| sum + entry.calculate_minute}
+#	end
 end
