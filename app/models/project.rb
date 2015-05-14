@@ -1,5 +1,9 @@
 class Project < ActiveRecord::Base
-	has_many :entries
+	has_many :entries #asingna la relación con otra tabla
+	validates :name, uniqueness: true #Una validación de datos, en este caso del nombre.
+	validates :name, presence: true
+	validates :name, length: {maximum: 30}
+	validates :name, format: {with: /\A[a-zA-Z0-9\s]+\z/}
 	def self.iron_find param
 		
 		where(id: param).first
