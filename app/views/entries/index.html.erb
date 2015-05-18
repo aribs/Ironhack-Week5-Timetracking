@@ -1,9 +1,14 @@
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
 <ul>
 	<% @entries.each do |entry| %>
 	<li>
 		Hour: <%= entry.hours %>
 		Minute: <%= entry.minutes %>
 		Date: <%= entry.created_at %>
+		<%= link_to 'Update', edit_project_entry_path(@project, entry) %>
+		<%= link_to 'Delete', project_entry_path(@project, entry), method: :delete, data: {confirm: "Are you sure"} %>
 	</li>
 	<% end %>
 </ul>

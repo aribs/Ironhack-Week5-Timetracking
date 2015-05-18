@@ -2,10 +2,11 @@
 	<% @projects.each do |project| %>
 		
 		<% if project.is_null_description?	%>
-			<li><%= project.id %> || <%= project.name %> || <%= project.description %> || 	Created at: <%= project.created_at %></li>
+			<li><%= project.id %> || <%= project.name %> || <%= project.description %> || 	Created at: <%= project.created_at %> ||  <%= link_to('Number of entries: ' + project.entries.count.to_s, project_entries_path(project.id)) %> || <%= link_to('Show', project) %> || <%= link_to('Update', edit_project_path(project.id)) %> || <%= link_to'Delete', project_path(project.id), method: :delete, data: {confirm: "Are you sure"} %></li></li>
 		<% else %>
-			<li><%= project.id %> || <%= project.name %></li>
+			<li><%= project.id %> || <%= project.name %> || <%= link_to(project.name, project_entries_path(project.id)) %>  </li>
 		<% end %>
 
 	<% end %>
+<%= link_to('New Project', new_project_path) %>
 </ul>
